@@ -1,0 +1,30 @@
+name: Deploy
+
+permissions: write-all
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # don't need install deps
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Build project
+        run: bun run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

@@ -1,0 +1,88 @@
+:root {
+  --color-1: #31b1e0;
+  --color-2: #1e7b9d;
+
+  --col-width-1: calc(40% - 40px);
+  --col-width-2: calc(50% - 40px);
+  --col-width-3: calc(100% - var(--col-width-1) - var(--col-width-2));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-1);
+}
+
+a:hover {
+  color: var(--color-2);
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: sans-serif;
+  margin-inline: 20px;
+}
+
+main {
+  max-width: 1100px;
+  align-self: center;
+  margin: auto;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-top: 30px;
+  margin-bottom: 36px;
+}
+
+/* release */
+.release {
+  display: flex;
+  flex-direction: column;
+}
+
+.release-header {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.release-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.release-table > * {
+  margin-bottom: 12px;
+  border-bottom: gray solid 2px;
+  padding-bottom: 12px;
+  display: flex;
+}
+
+.release-table :first-child > * {
+  font-weight: bolder;
+}
+
+.release-table > * > :first-child {
+  width: var(--col-width-1);
+  margin-inline: 8px;
+}
+
+.release-table > * > :nth-child(2) {
+  width: var(--col-width-2);
+  margin-inline: 8px;
+}
+
+.release-table > * > :nth-child(3) {
+  width: var(--col-width-3);
+  margin-inline: 8px;
+}
