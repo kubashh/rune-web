@@ -1,21 +1,23 @@
-const outpath = `./dist/index.html`;
-
 const { outputs } = await Bun.build({
   entrypoints: [`./src/index.html`],
   outdir: `.`,
-  naming: outpath,
+  naming: `./dist/index.html`,
   compile: true,
   minify: true,
 });
 
-// Bun makes empty script tag, so it can be removed to reduce the size of the output file
-const htmlWitoutScripts = removeScripts(await outputs[0].text());
+// Bun makes empty script tag and left comments, so it can be removed to reduce the size of the output file
+const witoutScriptsAndComments = removeScriptsAndComments(
+  await Bun.file(outputs[0].path).text(),
+);
 // Bun minify do not minify the html, so we need to minify it manually
-const minifiedHtml = minifyHtml(htmlWitoutScripts);
+const minifiedHtml = minifyHtml(witoutScriptsAndComments);
 await Bun.write(outputs[0].path, minifiedHtml);
 
-function removeScripts(text) {
-  return text.replaceAll(/<script[\s\S]*?<\/script>/g, ``);
+function removeScriptsAndComments(text) {
+  return text
+    .replaceAll(/<script[\s\S]*?<\/script>/g, ``)
+    .replaceAll(/<!--[\s\S]*?-->/g, ``);
 }
 
 function minifyHtml(text) {
