@@ -16,7 +16,7 @@ await Bun.write(outputs[0].path, minifiedHtml);
 
 function removeScriptsAndComments(text) {
   return text
-    .replaceAll(/<script[\s\S]*?<\/script>/g, ``)
+    .replaceAll(`<script type="module"></script>`, ``) // remove empty script
     .replaceAll(/<!--[\s\S]*?-->/g, ``);
 }
 
