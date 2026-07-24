@@ -2,6 +2,6 @@
   "name": "rune-web",
   "scripts": {
     "dev": "bun src/index.html",
-    "build": "rm -rf ./dist && bun build.js && cp -R ./releases ./dist"
+    "build": "rm -rf ./dist && ./releases/0.2.0/rune-0.2.0-linux-x86_64 src/index.html dist/index.html && cp -R ./releases ./dist"
   }
 }

@@ -1,3 +1,3 @@
 # Rune website
 
-Download rune executable or soure code
+Download rune executable or source code

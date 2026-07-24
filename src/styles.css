@@ -30,7 +30,8 @@ body {
   color: white;
   font-family: sans-serif;
   margin-inline: 20px;
-  margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 120px;
 }
 
 main {
@@ -40,10 +41,9 @@ main {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bolder;
-  margin-top: 30px;
-  margin-bottom: 36px;
+  margin-bottom: 60px;
 }
 
 h2 {
@@ -56,10 +56,16 @@ h3 {
   font-weight: bolder;
 }
 
+/* releases */
+.releases {
+  margin-bottom: 60px;
+}
+
 /* release */
 .release {
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .release-header {
@@ -99,8 +105,7 @@ h3 {
 
 /* install */
 .install {
-  margin-top: 40px;
-  margin-bottom: 8px;
+  margin-bottom: 40px;
 }
 
 .install > p {
@@ -109,11 +114,11 @@ h3 {
 }
 
 .install > div {
+  margin-top: 24px;
   display: flex;
 }
 
 .install > div > div {
-  margin-top: 24px;
   width: 100%;
 }
 
